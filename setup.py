@@ -5,12 +5,6 @@ from setuptools import setup
 VERSION = '1.1'
 
 if sys.argv[-1] == 'publish':
-    if os.system("pip freeze | grep wheel"):
-        print("wheel not installed.\nUse `pip install wheel`.\nExiting.")
-        sys.exit()
-    if os.system("pip freeze | grep twine"):
-        print("twine not installed.\nUse `pip install twine`.\nExiting.")
-        sys.exit()
     os.system("python setup.py sdist bdist_wheel")
     os.system("twine upload dist/*")
     print("You probably want to also tag the version now:")
@@ -19,7 +13,7 @@ if sys.argv[-1] == 'publish':
     sys.exit()
 
 setup(
-    name="markdown_inline_graphviz_extension",
+    name="markdown_inline_graphviz_extension_png",
     version=VERSION,
     py_modules=["markdown_inline_graphviz"],
     install_requires=['Markdown>=2.3.1'],
